@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="G.K.Senuka Gunasekara (PythonPlumber), E.A. Induwara Edirisooriya (Infroid-Coder)">
+    <meta name="description" content="The official web development society of Sri Sanghabodhi National College">
+    <meta name="keywords" content="web spectres, webspectres, sri sanghabodhi national college, web development">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;subset=cyrillic,cyrillic-ext,latin,latin-ext,vietnamese">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./images/web_logo.png">
+    <title>Web Spectres - SSNC</title>
+</head>
+<body>
+    <main>
+        <div id="hero">
+            <div id="hero-bg">
+                <img src="./imgs/3d/rocket.png" id="td1">
+                <img src="./imgs/3d/bulb.png" id="td2">
+                <img src="./imgs/3d/cogwheel.png" id="td3">
+                <img src="./imgs/3d/computer.png" id="td4">
+                <img src="./imgs/3d/target.png" id="td5">
+                <img src="./imgs/3d/terminal.png" id="td6">
+            </div>
+            <nav id="side-nav">
+                <div id="side-nav-elems">
+                    <a href="#projects" id="snav-link">
+                        <p id="snav-link-txt">Projects</p>
+                    </a>
+                    <a href="#about" id="snav-link">
+                        <p id="snav-link-txt">About</p>
+                    </a>
+                    <a href="https://github.com/webspectres" id="snav-link">
+                        <p id="snav-link-txt">Github</p>
+                    </a>
+                    <a href="#contact" id="snav-link">
+                        <p id="snav-link-txt">Contact</p>
+                    </a>
+                </div>
+            </nav>
+            <nav id="navbar">
+                <div id="hamburger">
+                    <div id="hm-line1"></div>
+                    <div id="hm-line2"></div>
+                    <div id="hm-line3"></div>
+                </div>
+                <a href="#projects" id="nav-link" class="nav-links">
+                    <p id="nav-link-txt">Projects</p>
+                </a>
+                <a href="#about" id="nav-link" class="nav-links">
+                    <p id="nav-link-txt">About</p>
+                </a>
+                <a href="" id="nav-link">
+                    <div id="nav-logos">
+                        <img src="./imgs/school_logo.png" alt="School Logo" id="schl-logo">
+                        <img src="./imgs/logo.png" alt="Society Logo" id="society-logo">
+                    </div>
+                </a>
+                <a href="https://github.com/webspectres" id="nav-link" class="nav-links">
+                    <p id="nav-link-txt">Github</p>
+                </a>
+                <a href="#contact" id="nav-link" class="nav-links">
+                    <p id="nav-link-txt">Contact</p>
+                </a>
+            </nav>
+            <div id="hero-content">
+                <p id="slogan"><span>Haunting</span> the<br>Web with<br><span>Spectacular Creations</span>.</p>
+                <button id="call-to-action">About Us</button>
+            </div>
+            <img src="imgs/ghost.png" id="bg-ghost">
+        </div>
+        <div id="about" class="section">
+            <div id="about-title-div" class="section-title-div">
+                <h2 id="section-title">About</h2>
+                <div id="st-underline"></div>
+            </div>
+            <p id="about-para">
+                We, the official web development society of Sri Sanghabodhi National College are dedicated to pushing the boundaries of creativity and technology combining innovation with precision to craft exceptional digital experiences. As “Spectres”, we operate as unseen architects, weaving intricate webs of design, functionality and usability to empower our school and its community in the digital space.
+            </p>
+        </div>
+        <div id="projects" class="section">
+            <div id="projects-title-div" class="section-title-div">
+                <h2 id="section-title">Projects</h2>
+                <div id="st-underline"></div>
+            </div>
+            <div id="project-cards"></div>
+        </div>
+        <div id="board"class="section">
+            <div id="board-title-div" class="section-title-div">
+                <h2 id="section-title">Board Members</h2>
+                <div id="st-underline"></div>
+            </div>
+            <div id="member-cards"></div>
+        </div>
+        <div class="section">
+            <div id="contact-title-div" class="section-title-div">
+                <h2 id="section-title">Contact</h2>
+                <div id="st-underline"></div>
+            </div>
+            <div id="contact">
+                <div id="contact-form">
+                    <form action="https://formspree.io/f/mwpkqkok" method="POST" id="contactForm">
+                        <input type="text" placeholder="Your Name..." id="c-name" class="contact-input" name="Name" required>
+                        <input type="email" placeholder="Your Email..." id="c-email" class="contact-input" name="Email" required>
+                        <input type="text" placeholder="Subject..." id="c-name" class="contact-input" name="Subject" required>
+                        <textarea id="c-msg" placeholder="Your Message..." class="contact-input" name="Message" required></textarea>
+                        <button id="c-submit" type="submit">Send</button>
+                    </form>
+                </div>
+                <div id="contact-info-card">
+                    <div id="contact-methods">
+                        <div id="contact-method">
+                            <div id="cm-img=div">
+                                <img src="./imgs/icons/email.png" id="cm-img" alt="">
+                            </div>
+                            <p id="cm-details">webspectres@yahoo.com</p>
+                        </div>
+                        <div id="contact-method">
+                            <div id="cm-img=div">
+                                <img src="./imgs/icons/github.png" id="cm-img" alt="">
+                            </div>
+                            <p id="cm-details">webspectres</p>
+                        </div>
+                        <div id="contact-method">
+                            <div id="cm-img=div">
+                                <img src="./imgs/icons/location.png" id="cm-img" alt="">
+                            </div>
+                            <p id="cm-details">43MJ+4W3, A1, Nittambuwa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">© Web Spectres - 2024 - All Rights Reserved</footer>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
