@@ -304,6 +304,24 @@ body{
     color: white;
     font-size: 13px;
 }
+.form-message {
+    display: none;
+    color: green;
+    font-size: 16px;
+    font-weight: bold; 
+    margin-top: 10px; 
+    padding: 5px 10px; 
+    background-color: #e0ffe0; 
+    border: 1px solid #4CAF50; 
+    border-radius: 4px; 
+}
+button.success {
+    background-color: #b7ff80;
+    color: #fff;
+}
+#form-message {
+    margin-top: 10px;
+}
 #c-msg{
     resize: none;
     height: 80px;
@@ -363,6 +381,19 @@ body{
 }
 #hm-line3{
     margin-bottom: 0px;
+}
+#update-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    margin: 0 auto;
+}
+#update-card{
+    background: rgb(0, 192, 48);
+    color: white;
+    width: 75%;
+    padding: 15px;
+    margin: 0 auto;
 }
 @keyframes pulse {
     0%, 100% {
