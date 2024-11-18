@@ -8,6 +8,7 @@
     <meta name="author" content="G.K.Senuka Gunasekara (PythonPlumber), E.A. Induwara Edirisooriya (Infroid-Coder)">
     <meta name="description" content="The official web development society of Sri Sanghabodhi National College">
     <meta name="keywords" content="web spectres, webspectres, sri sanghabodhi national college, web development">
+    <meta name="language" content="English">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;subset=cyrillic,cyrillic-ext,latin,latin-ext,vietnamese">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./imgs/logo.png">
@@ -95,22 +96,25 @@
             <div id="member-cards"></div>
         </div>
         <div id="updates" class="section">
-            <div id="updATES-title-div" class="section-title-div">
+            <div id="updates-title-div" class="section-title-div">
                 <h2 id="section-title">Updates</h2>
                 <div id="st-underline"></div>
             </div>
-            <div id="update-cards">
-                <div id="update-card">
-                    <h2 id="update-title">Lorem Ipsum</h2>
-                    <p id="update-date">17/11/2024</p>
-                </div>
-                <div id="update-card">
-                    <h2 id="update-title">Lorem Ipsum</h2>
-                    <p id="update-date">17/11/2024</p>
-                </div>
-                <div id="update-card">
-                    <h2 id="update-title">Lorem Ipsum</h2>
-                    <p id="update-date">17/11/2024</p>
+            <div id="update-cards"></div>
+            <button id="see-more-updates">See More...</button>
+            <div id="popup-backdrop" class="popup-visibility"></div>
+            <div id="update-popup" class="popup-visibility">
+                <div id="update-popup-box" class="popup-visibility">
+                    <div id="popup-head">
+                        <h2 id="popup-title">Lorem Ipsum</h2>
+                        <div id="popup-close">
+                            <div id="pc-line"></div>
+                            <div id="pc-line"></div>
+                        </div>
+                    </div>
+                    <div id="popup-content-div">
+                        <p id="popup-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ex provident esse quis itaque perferendis iusto eum doloribus, voluptates saepe corrupti illum facilis aspernatur totam, molestias accusamus? Saepe, facere similique?</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,7 +125,7 @@
             </div>
             <div id="contact">
                 <div id="contact-form">
-                    <form action="https://formspree.io/f/mwpkqkok" method="POST" id="contactForm">
+                    <form id="contactForm">
                         <input type="text" placeholder="Your Name..." id="c-name" class="contact-input" name="Name" required>
                         <input type="email" placeholder="Your Email..." id="c-email" class="contact-input" name="Email" required>
                         <input type="text" placeholder="Subject..." id="c-name" class="contact-input" name="Subject" required>
@@ -163,6 +167,7 @@
     </main>
     <script src="js/script.js"></script>
     <script src="js/form.js"></script>
+    <script src="js/etc.js"></script>    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
