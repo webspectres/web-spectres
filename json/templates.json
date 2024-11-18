@@ -1,0 +1,106 @@
+{
+    "projects": {
+        "Project1": {
+            "project_title": "Coming Soon...",
+            "project_img": "./imgs/logo.png"
+        },
+        "Project2": {
+            "project_title": "Coming Soon...",
+            "project_img": "./imgs/logo.png"
+        },
+        "Project3": {
+            "project_title": "Coming Soon...",
+            "project_img": "./imgs/logo.png"
+        },
+        "Project4": {
+            "project_title": "Coming Soon...",
+            "project_img": "./imgs/logo.png"
+        }
+    },
+    "board": [
+        {
+            "name": "G.K. Senuka Gunasekara",
+            "post": "President",
+            "img": "./imgs/board/1.png",
+            "img_alt": "Image contains a photo of the President of Web Spectres, G.K. Senuka Gunasekara",
+            "mid": 0
+        },
+        {
+            "name": "R.D.D. Vidunitha Chandradhasa",
+            "post": "Secretary",
+            "img": "./imgs/board/2.png",
+            "img_alt": "Image contains a photo of the Secretary of Web Spectres, R.D.D.Vidunitha Chandradhasa",
+            "mid": 1
+        },
+        {
+            "name": "I. Rashini Umandya Ilangasinghe",
+            "post": "Vice President",
+            "img": "./imgs/board/placeholder.png",
+            "img_alt": "Image contains a photo of the Vice President of Web Spectres, I.Rashini Umandya Ilangasinghe",
+            "mid": 2
+        },
+        {
+            "name": "Womuditha Wanigasundara",
+            "post": "-",
+            "img": "./imgs/board/placeholder.png",
+            "img_alt": "Image contains a photo of the  of Web Spectres, Womuditha Wanigasundara",
+            "mid": 3
+        },
+        {
+            "name": "---",
+            "post": "-",
+            "img": "./imgs/board/placeholder.png",
+            "img_alt": "Image contains a photo of the  of Web Spectres, ",
+            "mid": 4
+        },
+        {
+            "name": "---",
+            "post": "-",
+            "img": "./imgs/board/placeholder.png",
+            "img_alt": "Image contains a photo of the  of Web Spectres, ",
+            "mid": 5
+        },
+        {
+            "name": "---",
+            "post": "-",
+            "img": "./imgs/board/placeholder.png",
+            "img_alt": "Image contains a photo of the  of Web Spectres, ",
+            "mid": 6
+        }
+    ],
+    "updates": {
+        "The Wonders of Space Exploration": {
+            "id": 0,
+            "title": "The Wonders of Space Exploration",
+            "excerpt": "Space exploration has fascinated humanity for decades. Let's dive in.",
+            "long_content": "Space exploration is the ongoing discovery of celestial structures in outer space. It began with the launch of the first artificial satellite, Sputnik, in 1957. Since then, humanity has made giant leaps in understanding the universe, with missions to the Moon, Mars, and beyond.Technological advances such as the Hubble Space Telescope and space probes have allowed us to look deeper into the cosmos. These explorations not only expand our knowledge of the universe but also drive innovations in materials, robotics, and communication technologies.Future missions are poised to investigate the mysteries of black holes, habitable planets, and even interstellar travel, keeping the dream of space exploration alive for generations to come.",
+            "img": "",
+            "date": "18/11/2024"
+        },
+        "Wonders of Space Exploration": {
+            "id": 2,
+            "title": "The Wonders of Space Exploration",
+            "excerpt": "Space exploration has fascinated humanity for decades. Let's dive in.",
+            "long_content": "Space exploration is the ongoing discovery of celestial structures in outer space. It began with the launch of the first artificial satellite, Sputnik, in 1957. Since then, humanity has made giant leaps in understanding the universe, with missions to the Moon, Mars, and beyond.Technological advances such as the Hubble Space Telescope and space probes have allowed us to look deeper into the cosmos. These explorations not only expand our knowledge of the universe but also drive innovations in materials, robotics, and communication technologies.Future missions are poised to investigate the mysteries of black holes, habitable planets, and even interstellar travel, keeping the dream of space exploration alive for generations to come.",
+            "img": "",
+            "date": "18/11/2024"
+        },
+        "Mastering JavaScript for Beginners": {
+            "id": 1,
+            "title": "Mastering JavaScript for Beginners",
+            "excerpt": "JavaScript is the language of the web. Here's how to get started.",
+            "long_content": "JavaScript is a lightweight, interpreted programming language that powers modern web applications. It enables dynamic content, interactivity, and client-side validation, making it an essential tool for developers.For beginners, mastering JavaScript starts with understanding its basic constructs such as variables, loops, and functions. From there, learning about the Document Object Model (DOM) helps bridge the gap between code and user interfaces.Advanced topics include asynchronous programming with promises and async/await, as well as exploring frameworks like React and Vue.js for efficient application development. With practice and patience, anyone can unlock the full potential of JavaScript.",
+            "img": "",
+            "date": "17/11/2024"
+        },
+        "Mastering JavaScript": {
+            "id": 3,
+            "title": "Mastering JavaScript for Beginners",
+            "excerpt": "JavaScript is the language of the web. Here's how to get started.",
+            "long_content": "JavaScript is a lightweight, interpreted programming language that powers modern web applications. It enables dynamic content, interactivity, and client-side validation, making it an essential tool for developers.For beginners, mastering JavaScript starts with understanding its basic constructs such as variables, loops, and functions. From there, learning about the Document Object Model (DOM) helps bridge the gap between code and user interfaces.Advanced topics include asynchronous programming with promises and async/await, as well as exploring frameworks like React and Vue.js for efficient application development. With practice and patience, anyone can unlock the full potential of JavaScript.",
+            "img": "",
+            "date": "17/11/2024"
+        }
+            
+    }
+}
