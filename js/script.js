@@ -1,10 +1,36 @@
 function popupOpen(title, content, img){
-    document.getElementById("popup-title").innerHTML = title;
-    document.getElementById("popup-content").innerHTML = content;
-    document.getElementById("popup-backdrop").style.display = "block";
-    document.getElementById("update-popup-box-box").style.display = "block";
-    document.getElementById("update-popup-box").style.animationName = "scaleUp";
-    document.getElementById("update-popup-box").style.animationDuration = ".3s"
+    let pTitle = document.getElementById("popup-title");
+    let pContent = document.getElementById("popup-content")
+    let pBackdrop = document.getElementById("popup-backdrop")
+    let popup = document.getElementById("update-popup")
+    let popupBox =  document.getElementById("update-popup-box");
+    pTitle.innerHTML = title;
+    pContent.innerHTML = content;
+    pBackdrop.style.display = "block";
+    popup.style.display = "grid";
+    popupBox.style.display = "block";
+    popupBox.style.animationName = "scaleUp";
+    popupBox.style.animationDuration = ".3s"
+}
+function popupClose(){
+    let pBackdrop = document.getElementById("popup-backdrop")
+    let popup = document.getElementById("update-popup")
+    let popupBox =  document.getElementById("update-popup-box");
+    popupBox.onanimationend = () => {
+        popup.style.display = "none";
+        pBackdrop.style.display = "none";
+        popupBox.onanimationend = null;
+    }
+    popupBox.style.animationName = "scaleDown";
+    popupBox.style.animationDuration = ".2s";
+}
+function strReplace(str, replaceObj){
+    let keys = Object.keys(replaceObj);
+    let returnStr = str;
+    for(let i = 0; i < keys.length; i++){
+        returnStr = returnStr.replace(RegExp(`{\\|${keys[i]}\\|}`,"g"),replaceObj[keys[i]]);
+    }
+    return returnStr;
 }
 
 let projectCard = 
@@ -27,40 +53,58 @@ let updateCard =
     <img src="{|update-img|}" id="update-img">
     <h2 id="update-title">{|update-title|}</h2>
     <p id="update-date">{|update-date|}</p>
+</div>`;
+let urlCMethod = 
+`<div id="contact-method">
+    <div id="cm-img-div">
+        <img src="{|cmethod-img|}" id="cm-img" alt="{|cmethod-img-alt|}">
+    </div>
+    <p id="cm-details"><a id="cm-link" href="{|cmethod-url|}" target="_blank">{|cmethod|}</a></p>
+</div>`;
+let noUrlCMethod = 
+`<div id="contact-method">
+    <div id="cm-img-div">
+        <img src="{|cmethod-img|}" id="cm-img" alt="{|cmethod-img-alt|}">
+    </div>
+    <p id="cm-details">{|cmethod|}</p>
 </div>`
 
 let projectCards = document.getElementById("project-cards");
 let memberCards = document.getElementById("member-cards");
-let updateCards = document.getElementById("update-cards")
+let updateCards = document.getElementById("update-cards");
+let contactMethods = document.getElementById("contact-methods");
 
-fetch("./json/templates.json")
+fetch("../json/templates.json")
 .then(val => val.json())
 .then(json => {
     let projects = json.projects;
     Object.values(projects).forEach(val => {
-        projectCards.innerHTML += projectCard
-        .replace(/{\|project-img\|}/g, val.project_img)
-        .replace(/{\|project-title\|}/g, val.project_title);
+        projectCards.innerHTML += strReplace(projectCard, {
+            "project-img": val.project_img,
+            "project-title": val.project_title
+        });
     });
     let members = json.board;
     members.forEach(val => {
-        memberCards.innerHTML += memberCard
-        .replace(/{\|member-id\|}/g, val.mid)
-        .replace(/{\|member-img\|}/g, val.img)
-        .replace(/{\|member-img-alt\|}/g, val.img_alt)
-        .replace(/{\|member-name\|}/g, val.name)
-        .replace(/{\|member-post\|}/g, val.post)
+        memberCards.innerHTML += strReplace(memberCard, {
+            "member-id": val.mid,
+            "member-img": val.img,
+            "member-img-alt": val.img_alt,
+            "member-name": val.name,
+            "member-post": val.post
+        });
     })
     let updates = json.updates;
     let updateObjs = Object.values(updates);
     for(let i = 0; i < 3; i++){
         if(!updateObjs[i]) break;
         let val = updateObjs[i];
-        updateCards.innerHTML += updateCard
-        .replace(/{\|update-id\|}/g, (typeof val.id === "number") ? val.id : i)
-        .replace(/{\|update-img\|}/g, (val.img && typeof val.img === "string") ? val.img : "./imgs/updates/placeholder.png")
-        .replace(/{\|update-title\|}/g, val.title)
-        .replace(/{\|update-date\|}/g, val.date)
+        updateCards.innerHTML += strReplace(updateCard, {
+            "update-id": (typeof val.id === "number") ? val.id : i,
+            "update-img": (val.img && typeof val.img === "string") ? val.img : "./imgs/updates/placeholder.png",
+            "update-title": val.title,
+            "update-date": val.date
+        });
     };
     document.querySelectorAll("#update-card").forEach(elem => {
         let aId = elem.getAttribute("aid");
@@ -68,7 +112,20 @@ fetch("./json/templates.json")
         elem.onclick = () => {
             popupOpen(val.title, val.long_content)
         }
-    })
+    });
+    document.getElementById("popup-close").onclick = popupClose;
+
+    let contact_methods = json.contact_methods;
+    let cMethodObjs = Object.values(contact_methods);
+    for(let i = 0; i < cMethodObjs.length; i++){
+        let replaceTemplate = (cMethodObjs[i].url === undefined) ? noUrlCMethod : urlCMethod;
+        contactMethods.innerHTML += strReplace(replaceTemplate,{
+            "cmethod-img": cMethodObjs[i].icon,
+            "cmethod-img-alt": cMethodObjs[i].icon_alt,
+            "cmethod": cMethodObjs[i].content,
+            "cmethod-url": cMethodObjs[i].url
+        })
+    }
 
 
     let hamburgerLines = document.querySelectorAll("#hamburger div");
@@ -77,11 +134,7 @@ fetch("./json/templates.json")
     let sideNavElems = document.querySelectorAll("#snav-link");
 
     let sideNavStatus = "closed"
- 
-    document.getElementById("popup-close").onclick = () => {
-        document.getElementById("update-popup-box").style.display = "none";
-        document.getElementById("popup-backdrop").style.display = "none";
-    }
+
     hamburger.onclick = () => {
         if(sideNavStatus === "closed"){
             sideNav.onanimationend = () => {};
