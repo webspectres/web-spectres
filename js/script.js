@@ -1,38 +1,3 @@
-function popupOpen(title, content, img){
-    let pTitle = document.getElementById("popup-title");
-    let pContent = document.getElementById("popup-content")
-    let pBackdrop = document.getElementById("popup-backdrop")
-    let popup = document.getElementById("update-popup")
-    let popupBox =  document.getElementById("update-popup-box");
-    pTitle.innerHTML = title;
-    pContent.innerHTML = content;
-    pBackdrop.style.display = "block";
-    popup.style.display = "grid";
-    popupBox.style.display = "block";
-    popupBox.style.animationName = "scaleUp";
-    popupBox.style.animationDuration = ".3s"
-}
-function popupClose(){
-    let pBackdrop = document.getElementById("popup-backdrop")
-    let popup = document.getElementById("update-popup")
-    let popupBox =  document.getElementById("update-popup-box");
-    popupBox.onanimationend = () => {
-        popup.style.display = "none";
-        pBackdrop.style.display = "none";
-        popupBox.onanimationend = null;
-    }
-    popupBox.style.animationName = "scaleDown";
-    popupBox.style.animationDuration = ".2s";
-}
-function strReplace(str, replaceObj){
-    let keys = Object.keys(replaceObj);
-    let returnStr = str;
-    for(let i = 0; i < keys.length; i++){
-        returnStr = returnStr.replace(RegExp(`{\\|${keys[i]}\\|}`,"g"),replaceObj[keys[i]]);
-    }
-    return returnStr;
-}
-
 let projectCard = 
 `<div id="project-card">
     <div id="project-img-div">
@@ -68,13 +33,121 @@ let noUrlCMethod =
     </div>
     <p id="cm-details">{|cmethod|}</p>
 </div>`
+let smUpdateCard = 
+`<div id="sm-update-card" aid="{|update-id|}">
+    <img src="{|update-img|}" id="sm-update-img">
+    <h2 id="sm-update-title">{|update-title|}</h2>
+    <p id="sm-update-date">{|update-date|}</p>
+</div>`
 
 let projectCards = document.getElementById("project-cards");
 let memberCards = document.getElementById("member-cards");
 let updateCards = document.getElementById("update-cards");
 let contactMethods = document.getElementById("contact-methods");
 
-fetch("../json/templates.json")
+let backdropOpenOnClose = false;
+
+function popupOpen(title, content, img){
+    let pTitle = document.getElementById("popup-title");
+    let pContent = document.getElementById("popup-content")
+    let backdrop = document.getElementById("backdrop")
+    let popup = document.getElementById("update-popup")
+    let popupBox =  document.getElementById("update-popup-box");
+    pTitle.innerHTML = title;
+    pContent.innerHTML = content;
+    backdrop.style.display = "block";
+    popup.style.display = "grid";
+    popupBox.style.display = "block";
+    popupBox.style.animationName = "scaleUp";
+    popupBox.style.animationDuration = ".3s"
+}
+function popupClose(){
+    let backdrop = document.getElementById("backdrop")
+    let popup = document.getElementById("update-popup")
+    let popupBox =  document.getElementById("update-popup-box");
+    popupBox.onanimationend = () => {
+        popup.style.display = "none";
+        if(backdropOpenOnClose === false) backdrop.style.display = "none";
+        popupBox.onanimationend = null;
+    }
+    popupBox.style.animationName = "scaleDown";
+    popupBox.style.animationDuration = ".2s";
+}
+function openSeeMore(updateObj){
+    let popup = document.getElementById("sm-updates");
+    let popupBox = document.getElementById("sm-updates-box");
+    let backdrop = document.getElementById("backdrop")
+    let updateObjs = Object.values(updateObj);
+    if(updateObjs.length !== popupBox.children.length){
+        popupBox.innerHTML = "";
+        for(let i = 0; i < updateObjs.length; i++){
+            let val = updateObjs[i];
+            popupBox.innerHTML += strReplace(smUpdateCard, {
+                "update-id": (typeof val.id === "number") ? val.id : i,
+                "update-img": (val.img && typeof val.img === "string") ? val.img : "./imgs/updates/placeholder.png",
+                "update-title": val.title,
+                "update-date": val.date
+            });
+            for(let i = 0; i < popupBox.children.length; i++){
+                let elem = popupBox.children[i];
+                elem.onclick = () => {
+                    let id = elem.getAttribute("aid");
+                    backdropOpenOnClose = true;
+                    popupOpen(updateObjs[i].title, updateObjs[i].long_content, updateObjs[i].img)
+                }
+            }
+        }
+    }
+    backdrop.style.display = "block";
+    popupBox.style.animationName = "slide-in-left";
+    popupBox.style.animationDuration = ".3s";
+    popup.style.display = "grid";
+}
+function closeSeeMore(){
+    let popup = document.getElementById("sm-updates");
+    let popupBox = document.getElementById("sm-updates-box");
+    let backdrop = document.getElementById("backdrop")
+    let upopup = document.getElementById("update-popup")
+    let upopupBox =  document.getElementById("update-popup-box");
+    let upopupOpen = (getComputedStyle(upopup).display === "none") ? false : true;
+    if(upopupOpen){
+        upopupBox.onanimationend = () => {
+            upopup.style.display = "none";
+            if(backdropOpenOnClose === false) backdrop.style.display = "none";
+            upopupBox.onanimationend = null;
+            popupBox.style.animationName = "slide-out-left";
+            popupBox.style.animationDuration = ".3s";
+            popupBox.onanimationend = () => {
+                popup.style.display = "none";
+                backdrop.style.display = "none";
+                popupBox.onanimationend = null;
+            }
+        }
+        upopupBox.style.animationName = "scaleDown";
+        upopupBox.style.animationDuration = ".2s";
+    } else{
+        popupBox.style.animationName = "slide-out-left";
+        popupBox.style.animationDuration = ".3s";
+        popupBox.onanimationend = () => {
+            popup.style.display = "none";
+            backdrop.style.display = "none";
+            popupBox.onanimationend = null;
+        }
+    }
+}
+function strReplace(str, replaceObj){
+    let keys = Object.keys(replaceObj);
+    let returnStr = str;
+    for(let i = 0; i < keys.length; i++){
+        returnStr = returnStr.replace(RegExp(`{\\|${keys[i]}\\|}`,"g"),replaceObj[keys[i]]);
+    }
+    return returnStr;
+}
+function forEachUpdate(callback){
+    let 
+}
+
+fetch("../templates.json")
 .then(val => val.json())
 .then(json => {
     let projects = json.projects;
@@ -96,6 +169,10 @@ fetch("../json/templates.json")
     })
     let updates = json.updates;
     let updateObjs = Object.values(updates);
+    let seeMore = document.getElementById("see-more-updates")
+    if(updateObjs.length > 3){
+        seeMore.style.display = "block";
+    }
     for(let i = 0; i < 3; i++){
         if(!updateObjs[i]) break;
         let val = updateObjs[i];
@@ -110,10 +187,19 @@ fetch("../json/templates.json")
         let aId = elem.getAttribute("aid");
         let val = updateObjs[aId];
         elem.onclick = () => {
+            backdropOpenOnClose = false;
             popupOpen(val.title, val.long_content)
         }
     });
-    document.getElementById("popup-close").onclick = popupClose;
+    document.getElementById("popup-close").onclick = () => {
+        popupClose(true);
+    }
+    seeMore.onclick = () => {
+        if(updateObjs.length > 3){
+            openSeeMore(updateObjs)
+        }
+    }
+    document.getElementById("sm-close").onclick = closeSeeMore;
 
     let contact_methods = json.contact_methods;
     let cMethodObjs = Object.values(contact_methods);
