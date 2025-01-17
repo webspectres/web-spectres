@@ -383,12 +383,12 @@ body{
     grid-template-columns: repeat(3, 1fr);
     width: 90%;
     margin: 0 auto;
-    grid-row-gap: 15px;
+    grid-row-gap: 25px;
 }
 #update-card{
     background: rgb(16, 16, 16);
     color: white;
-    width: 320px;
+    width: 80%;
     padding: 15px;
     margin: 0 auto;
     border: solid 3px rgb(16, 16, 16);
@@ -399,7 +399,8 @@ body{
     border-radius: 10px;
 }
 #update-img{
-    width: 320px;
+    /* width: 320px; */
+    width: 100%;
     height: 175px;
 }
 #update-date{
@@ -470,30 +471,42 @@ body{
 }
 #sm-updates{
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     height: 100%;
-    display: grid;
     display: none;
-    z-index: 200;
+    z-index: 199;
 }
 #sm-updates-box{
     display: grid;
-    width: 95%;
+    width: 90%;
     height: 92vh;
     margin: auto;
     background: rgb(24, 24, 24);
     overflow-y: auto;
-    grid-row-gap: 20px;
+    border-radius: 10px;
+}
+#sm-updates-box-inner{
+    margin: 0 auto;
+    width: 96%;
+    text-align: center;
+}
+#sm-update-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    margin-top: 20px;
+    grid-gap: 20px;
 }
 #sm-update-card{
-    width: 90%;
+    display: grid;
+    /* width: 100%; */
     margin: 0 auto;
     text-align: center;
     font-family: montserrat;
     background: rgb(15, 15, 15);
-    height: fit-content;
     padding: 20px 7px;
     border: solid 3px rgb(15, 15, 15);
     transition: .3s;
@@ -502,14 +515,12 @@ body{
     border: solid 3px #b7ff80;
     border-radius: 10px;
 }
-#sm-update-card:nth-child(1){
-    margin-top: 25px;
-}
 #sm-update-card:nth-last-child(1){
     margin-bottom: 25px;
 }
 #sm-update-img{
     width: 95%;
+    margin: 0 auto;
 }
 #sm-update-title{
     color: white;
@@ -522,21 +533,66 @@ body{
 #sm-close{
     position: fixed;
     top: 30px;
-    right: 45px;
+    right: 40px;
+    z-index: 200;
     cursor: pointer;
 }
 #sm-pc-line{
     width: 30px;
 }
+#update-search{
+    display: inline-grid;
+    grid-template-columns: 400px 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#update-search-input{
+    width: 95%;
+    height: 30px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px rgb(104, 104, 104);
+    background: none;
+    padding: 7px;
+    margin: auto auto;
+    transition: .2s;
+    color: white;
+}
+#update-search-input:focus{
+    border-bottom: solid 2px #b7ff80;
+}
+#update-search-btn{
+    display: grid;
+    margin: auto auto;
+    background: rgb(49, 49, 49);
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+#update-search-btn:hover{
+    background: rgb(71, 71, 71);
+}
+#update-search-icon{
+    width: 27px;
+    margin: auto auto;
+    filter: invert(1);
+}
+#no-updates{
+    color: white;
+    grid-column: span 3;
+    display: none;
+}
 
 @keyframes scaleUp{
     0%{
-        scale: 0 0;
+        scale: 0;
     }
 }
 @keyframes scaleDown{
     100%{
-        scale: 0 0;
+        scale: 0;
     }
 }
 @keyframes pulse {
@@ -622,9 +678,22 @@ body{
         width: 90%;
     }
 }
+@media screen and (max-width: 1250px) {
+    #update-cards{
+        width: 99%;
+    }
+}
 @media screen and (max-width: 1150px){
     #project-cards{
         width: 100%;
+    }
+    #update-card{
+        width: 85%;
+    }
+}
+@media screen and (max-width: 1050px) {
+    #update-card{
+        width: 84%;
     }
 }
 @media screen and (max-width: 1010px) {
@@ -635,6 +704,16 @@ body{
     #project-card{
         margin-bottom: 15px;
         width: 75%;
+    }
+}
+@media screen and (max-width: 950px){
+    #update-cards{
+        grid-template-columns: repeat(2, 1fr);
+        width: 90%;
+    }
+    #update-card:nth-last-child(1){
+        grid-column: span 2;
+        width: 42%;
     }
 }
 @media screen and (max-width: 900px) {
@@ -673,6 +752,9 @@ body{
     #contact-info-card{
         width: 50%;
     }
+    #update-cards{
+        width: 99%;
+    }
 }
 @media screen and (max-width: 750px){
     #project-cards{
@@ -688,6 +770,13 @@ body{
     }
     #society-logo{
         width: 90px;
+    }
+    #update-cards{
+        grid-template-columns: 1fr;
+    }
+    #update-card:nth-last-child(1){
+        grid-column: span 1;
+        width: 84%;
     }
 }
 @media screen and (max-width: 650px){
