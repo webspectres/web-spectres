@@ -38,7 +38,7 @@ let smUpdateCard =
     <img src="{|update-img|}" id="sm-update-img">
     <h2 id="sm-update-title">{|update-title|}</h2>
     <p id="sm-update-date">{|update-date|}</p>
-</div>`
+</div>`;
 
 let projectCards = document.getElementById("project-cards");
 let memberCards = document.getElementById("member-cards");
@@ -46,6 +46,15 @@ let updateCards = document.getElementById("update-cards");
 let contactMethods = document.getElementById("contact-methods");
 
 let backdropOpenOnClose = false;
+let seeMoreOpen = false;
+
+document.addEventListener('click', e => {
+    if(e.target.id === "update-popup"){
+        popupClose();
+    } else if(e.target.id === "sm-updates"){
+        closeSeeMore();
+    }
+});
 
 function popupOpen(title, content, img){
     let pTitle = document.getElementById("popup-title");
@@ -60,6 +69,7 @@ function popupOpen(title, content, img){
     popupBox.style.display = "block";
     popupBox.style.animationName = "scaleUp";
     popupBox.style.animationDuration = ".3s"
+    if(seeMoreOpen) backdrop.style.zIndex = "200";
 }
 function popupClose(){
     let backdrop = document.getElementById("backdrop")
@@ -68,6 +78,7 @@ function popupClose(){
     popupBox.onanimationend = () => {
         popup.style.display = "none";
         if(backdropOpenOnClose === false) backdrop.style.display = "none";
+        if(seeMoreOpen) backdrop.style.zIndex = "199";
         popupBox.onanimationend = null;
     }
     popupBox.style.animationName = "scaleDown";
@@ -76,20 +87,21 @@ function popupClose(){
 function openSeeMore(updateObj){
     let popup = document.getElementById("sm-updates");
     let popupBox = document.getElementById("sm-updates-box");
+    let cardOutput = document.getElementById("sm-update-cards");
     let backdrop = document.getElementById("backdrop")
     let updateObjs = Object.values(updateObj);
     if(updateObjs.length !== popupBox.children.length){
-        popupBox.innerHTML = "";
+        cardOutput.innerHTML = "";
         for(let i = 0; i < updateObjs.length; i++){
             let val = updateObjs[i];
-            popupBox.innerHTML += strReplace(smUpdateCard, {
+            cardOutput.innerHTML += strReplace(smUpdateCard, {
                 "update-id": (typeof val.id === "number") ? val.id : i,
                 "update-img": (val.img && typeof val.img === "string") ? val.img : "./imgs/updates/placeholder.png",
                 "update-title": val.title,
                 "update-date": val.date
             });
-            for(let i = 0; i < popupBox.children.length; i++){
-                let elem = popupBox.children[i];
+            for(let i = 0; i < cardOutput.children.length; i++){
+                let elem = cardOutput.children[i];
                 elem.onclick = () => {
                     let id = elem.getAttribute("aid");
                     backdropOpenOnClose = true;
@@ -99,9 +111,10 @@ function openSeeMore(updateObj){
         }
     }
     backdrop.style.display = "block";
-    popupBox.style.animationName = "slide-in-left";
+    popupBox.style.animationName = "scaleUp";
     popupBox.style.animationDuration = ".3s";
     popup.style.display = "grid";
+    seeMoreOpen = true;
 }
 function closeSeeMore(){
     let popup = document.getElementById("sm-updates");
@@ -126,7 +139,7 @@ function closeSeeMore(){
         upopupBox.style.animationName = "scaleDown";
         upopupBox.style.animationDuration = ".2s";
     } else{
-        popupBox.style.animationName = "slide-out-left";
+        popupBox.style.animationName = "scaleDown";
         popupBox.style.animationDuration = ".3s";
         popupBox.onanimationend = () => {
             popup.style.display = "none";
@@ -134,6 +147,8 @@ function closeSeeMore(){
             popupBox.onanimationend = null;
         }
     }
+    backdrop.onclick = null;
+    seeMoreOpen = false;
 }
 function strReplace(str, replaceObj){
     let keys = Object.keys(replaceObj);
@@ -143,9 +158,7 @@ function strReplace(str, replaceObj){
     }
     return returnStr;
 }
-function forEachUpdate(callback){
-    let 
-}
+function forEachUpdate(callback){}
 
 fetch("../templates.json")
 .then(val => val.json())
@@ -169,6 +182,7 @@ fetch("../templates.json")
     })
     let updates = json.updates;
     let updateObjs = Object.values(updates);
+    console.log(updateObjs)
     let seeMore = document.getElementById("see-more-updates")
     if(updateObjs.length > 3){
         seeMore.style.display = "block";
@@ -177,7 +191,7 @@ fetch("../templates.json")
         if(!updateObjs[i]) break;
         let val = updateObjs[i];
         updateCards.innerHTML += strReplace(updateCard, {
-            "update-id": (typeof val.id === "number") ? val.id : i,
+            "update-id": val.id,
             "update-img": (val.img && typeof val.img === "string") ? val.img : "./imgs/updates/placeholder.png",
             "update-title": val.title,
             "update-date": val.date
@@ -185,7 +199,8 @@ fetch("../templates.json")
     };
     document.querySelectorAll("#update-card").forEach(elem => {
         let aId = elem.getAttribute("aid");
-        let val = updateObjs[aId];
+        let val = updates[`u${aId}`];
+        console.log(val)
         elem.onclick = () => {
             backdropOpenOnClose = false;
             popupOpen(val.title, val.long_content)
@@ -196,7 +211,7 @@ fetch("../templates.json")
     }
     seeMore.onclick = () => {
         if(updateObjs.length > 3){
-            openSeeMore(updateObjs)
+            openSeeMore(updateObjs);
         }
     }
     document.getElementById("sm-close").onclick = closeSeeMore;
@@ -259,4 +274,31 @@ fetch("../templates.json")
     sideNavElems.forEach(val => {
         val.onclick = () => hamburger.click();
     })
-})
+});
+
+let searchInput = document.getElementById("update-search-input");
+let searchBtn = document.getElementById("update-search-btn");
+
+searchInput.onkeydown = (e) => {
+    if(e.key === "Enter" && !e.shiftKey && !e.metaKey && !e.ctrlKey){
+        searchBtn.click();
+    }
+}
+
+searchBtn.onclick = () => {
+    let elems = document.querySelectorAll("#sm-update-card");
+    let showCount = 0;
+    elems.forEach(elem => {
+        if(!elem.querySelector("h2").innerText.toLowerCase().includes(searchInput.value.toLowerCase())){
+            elem.style.display = "none";
+        } else{
+            elem.style.display = "grid";
+            showCount++;
+        }
+    });
+    if(showCount === 0){
+        document.getElementById("no-updates").style.display = "block";
+    } else{
+        document.getElementById("no-updates").style.display = "none";
+    }
+}
