@@ -69,37 +69,37 @@
         }
     ],
     "updates": {
-        "The Wonders of Space Exploration": {
-            "id": 0,
-            "title": "The Wonders of Space Exploration",
-            "excerpt": "Space exploration has fascinated humanity for decades. Let's dive in.",
-            "long_content": "Space exploration is the ongoing discovery of celestial structures in outer space. It began with the launch of the first artificial satellite, Sputnik, in 1957. Since then, humanity has made giant leaps in understanding the universe, with missions to the Moon, Mars, and beyond.Technological advances such as the Hubble Space Telescope and space probes have allowed us to look deeper into the cosmos. These explorations not only expand our knowledge of the universe but also drive innovations in materials, robotics, and communication technologies.Future missions are poised to investigate the mysteries of black holes, habitable planets, and even interstellar travel, keeping the dream of space exploration alive for generations to come.",
-            "img": "",
-            "date": "18/11/2024"
-        },
-        "Wonders of Space Exploration": {
-            "id": 1,
-            "title": "The Wonders of Space Exploration",
-            "excerpt": "Space exploration has fascinated humanity for decades. Let's dive in.",
-            "long_content": "Space exploration is the ongoing discovery of celestial structures in outer space. It began with the launch of the first artificial satellite, Sputnik, in 1957. Since then, humanity has made giant leaps in understanding the universe, with missions to the Moon, Mars, and beyond.Technological advances such as the Hubble Space Telescope and space probes have allowed us to look deeper into the cosmos. These explorations not only expand our knowledge of the universe but also drive innovations in materials, robotics, and communication technologies.Future missions are poised to investigate the mysteries of black holes, habitable planets, and even interstellar travel, keeping the dream of space exploration alive for generations to come.",
-            "img": "",
-            "date": "18/11/2024"
-        },
-        "Mastering JavaScript for Beginners": {
-            "id": 2,
-            "title": "Mastering JavaScript for Beginners",
-            "excerpt": "JavaScript is the language of the web. Here's how to get started.",
-            "long_content": "JavaScript is a lightweight, interpreted programming language that powers modern web applications. It enables dynamic content, interactivity, and client-side validation, making it an essential tool for developers.For beginners, mastering JavaScript starts with understanding its basic constructs such as variables, loops, and functions. From there, learning about the Document Object Model (DOM) helps bridge the gap between code and user interfaces.Advanced topics include asynchronous programming with promises and async/await, as well as exploring frameworks like React and Vue.js for efficient application development. With practice and patience, anyone can unlock the full potential of JavaScript.",
-            "img": "",
-            "date": "17/11/2024"
-        },
-        "Mastering JavaScript": {
+        "u3": {
             "id": 3,
-            "title": "Mastering JavaScript for Beginners",
-            "excerpt": "JavaScript is the language of the web. Here's how to get started.",
-            "long_content": "JavaScript is a lightweight, interpreted programming language that powers modern web applications. It enables dynamic content, interactivity, and client-side validation, making it an essential tool for developers.For beginners, mastering JavaScript starts with understanding its basic constructs such as variables, loops, and functions. From there, learning about the Document Object Model (DOM) helps bridge the gap between code and user interfaces.Advanced topics include asynchronous programming with promises and async/await, as well as exploring frameworks like React and Vue.js for efficient application development. With practice and patience, anyone can unlock the full potential of JavaScript.",
+            "title": "Project Release: Coverage",
+            "excerpt": "Our second project, Coverage is here to connect school events to the world.",
+            "long_content": "Coverage is our second project. It's a continuing project in which we give media coverage to all events held in our school and broadcast them live for all audiences. Visit the website {https://something.vercel.app |- https://something.vercel.app} to enjoy any live broadcast as they happen.",
             "img": "",
-            "date": "17/11/2024"
+            "date": "10/02/2025"
+        },
+        "u2": {
+            "id": 2,
+            "title": "Project Release: Visual Sonic",
+            "excerpt": "Our new project, Visual Sonic was released recently.",
+            "long_content": "Our first project, Visual Sonic was released on the 31st January of 2025. Visual Sonic is a school specific gallery developed through the individual effort of our president, Senuka Gunasekara. The Visual Sonic gallery features exclusive photos and videos of our school's past events. This gallery will be continously updated for every memorable event hosted by and in our school. More exciting updates coming soon. Peace out!",
+            "img": "",
+            "date": "31/01/2025"
+        },
+        "u1": {
+            "id": 1,
+            "title": "Official Board Elected",
+            "excerpt": "As the official web development society of Sri Sanghabodhi College, we are thrilled to announce that the members of the 1st official board of our society have been elected as of 26th January 2025. The elected board places G.K. Senuka Gunasekara as the president, I. Rashini Umandya Ilangasinghe as the vice-president, R.D.D. Vidunitha Chandradhasa as the secretary, Womuditha Wanigasundara as somebody, John Doe as somebody else, Foo Bar as somebody else and Jane Doe as somebody else. With that, our board of officials is ready to bring the innovations of tomorrow to today. Congratulations to all board members and good luck.",
+            "long_content": "",
+            "img": "",
+            "date": "26/01/2025"
+        },
+        "u0": {
+            "id": 0,
+            "title": "WebSpectres' Website Released",
+            "excerpt": "The official website of the WebSpectres' is now up and running.",
+            "long_content": "We, the web development society of Sri Sanghabodhi College released our official website on the 25th January of 2025. All projects, project releases, board decisions and changes will be posted here. You can contact us through the contact form on this website or send an email to the email mentioned in the contact section. Stay tuned for exciting and innovative projects in the future. Spectres out!",
+            "img": "",
+            "date": "25/01/2025"
         }  
     },
     "contact_methods": {
