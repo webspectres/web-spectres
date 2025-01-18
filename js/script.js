@@ -296,6 +296,7 @@ searchBtn.onclick = () => {
             showCount++;
         }
     });
+    
     if(showCount === 0){
         document.getElementById("no-updates").style.display = "block";
     } else{
