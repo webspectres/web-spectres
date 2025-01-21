@@ -35,7 +35,7 @@
         {
             "name": "I. Rashini Umandya Ilangasinghe",
             "post": "Vice President",
-            "img": "./imgs/board/placeholder.png",
+            "img": "./imgs/board/3.png",
             "img_alt": "Image contains a photo of the Vice President of Web Spectres, I.Rashini Umandya Ilangasinghe",
             "mid": 2
         },
@@ -97,7 +97,7 @@
             "id": 0,
             "title": "WebSpectres' Website Released",
             "excerpt": "The official website of the WebSpectres' is now up and running.",
-            "long_content": "We as the web development society of Sri Sanghabodhi College released our official website on the 25th January of 2025. All projects, project releases, board decisions and changes will be posted here. You can contact us through the contact form on this website or send an email to the email mentioned in the contact section. Stay tuned for exciting and innovative projects in the future. Spectres out!",
+            "long_content": "We, the web development society of Sri Sanghabodhi College released our official website on the 25th January of 2025. All projects, project releases, board decisions and changes will be posted here. You can contact us through the contact form on this website or send an email to the email mentioned in the contact section. Stay tuned for exciting and innovative projects in the future. Spectres out!",
             "img": "",
             "date": "25/01/2025"
         }  
