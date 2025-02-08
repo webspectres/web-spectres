@@ -63,7 +63,11 @@ function popupOpen(title, content, img){
     let popup = document.getElementById("update-popup")
     let popupBox =  document.getElementById("update-popup-box");
     pTitle.innerHTML = title;
-    pContent.innerHTML = content;
+
+    let hyperLinkReg = /{[^\|]+( )?\|\-( )?http(s)?:\/\/([a-zA-Z\-0-9]+\.)+[a-zA-Z\-]+(\?(([a-zA-Z0-9\_\-%]+(=[a-zA-Z0-9\_\-%]+)?&)+)?([a-zA-Z0-9\_\-%]+(=[a-zA-Z0-9\_\-%]+)?)|#[a-zA-Z0-9\_\-%]+)?}/g;
+    let hyperLinks = content.match(hyperLinkReg);
+
+    pContent.innerHTML = content
     backdrop.style.display = "block";
     popup.style.display = "grid";
     popupBox.style.display = "block";
@@ -192,7 +196,7 @@ fetch("../templates.json")
         let val = updateObjs[i];
         updateCards.innerHTML += strReplace(updateCard, {
             "update-id": val.id,
-            "update-img": (val.img && typeof val.img === "string") ? val.img : "./imgs/updates/placeholder.png",
+            "update-img": (val.img && typeof val.img === "string") ? val.img : `./imgs/updates/placeholder.png`,
             "update-title": val.title,
             "update-date": val.date
         });
@@ -296,7 +300,6 @@ searchBtn.onclick = () => {
             showCount++;
         }
     });
-    
     if(showCount === 0){
         document.getElementById("no-updates").style.display = "block";
     } else{
