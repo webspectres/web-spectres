@@ -65,9 +65,21 @@ function popupOpen(title, content, img){
     pTitle.innerHTML = title;
 
     let hyperLinkReg = /{[^\|]+( )?\|\-( )?http(s)?:\/\/([a-zA-Z\-0-9]+\.)+[a-zA-Z\-]+(\?(([a-zA-Z0-9\_\-%]+(=[a-zA-Z0-9\_\-%]+)?&)+)?([a-zA-Z0-9\_\-%]+(=[a-zA-Z0-9\_\-%]+)?)|#[a-zA-Z0-9\_\-%]+)?}/g;
+
     let hyperLinks = content.match(hyperLinkReg);
 
-    pContent.innerHTML = content
+    console.log(hyperLinks)
+    hyperLinks.forEach(val => {
+        let hyperLinkTag = `<a href="{|link|}">{|text|}</a>`;
+        let linkText = /^{[^\|]+( )?\|\-/;
+        let linkAddress = /http(s)?:\/\/([a-zA-Z\-0-9]+\.)+[a-zA-Z\-]+(\?(([a-zA-Z0-9\_\-%]+(=[a-zA-Z0-9\_\-%]+)?&)+)?([a-zA-Z0-9\_\-%]+(=[a-zA-Z0-9\_\-%]+)?)|#[a-zA-Z0-9\_\-%]+)?}$/g;
+        content = content.replace(val, strReplace(hyperLinkTag, {
+            text: val.match(linkText)[0].slice(1,-2), 
+            link: val.match(linkAddress)[0].slice(0,-1)
+        }));
+    })
+
+    pContent.innerHTML = content;
     backdrop.style.display = "block";
     popup.style.display = "grid";
     popupBox.style.display = "block";
