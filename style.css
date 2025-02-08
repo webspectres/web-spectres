@@ -441,6 +441,16 @@ body{
     margin: auto;
     scale: 1 1;
 }
+#popup-content a{
+    color: #b7ff80;
+    transition: .2s;
+}
+#popup-content a:hover{
+    color: rgb(24, 24, 24);
+    background: #b7ff80;
+    border-radius: 100px;
+    padding: 0px 10px;
+}
 #popup-title{
     margin: 0px;
 }
