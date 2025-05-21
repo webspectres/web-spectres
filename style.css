@@ -437,9 +437,12 @@ body{
     background: rgb(24, 24, 24);
     color: white;
     width: 70%;
-    padding: 15px;
+    padding: 25px;
     margin: auto;
     scale: 1 1;
+}
+#popup-content{
+    line-height: 25px;
 }
 #popup-content a{
     color: #b7ff80;
