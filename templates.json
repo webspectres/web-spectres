@@ -87,20 +87,20 @@
         },
         "u1": {
             "id": 1,
-            "title": "Official Board Elected",
-            "excerpt": "As the official web development society of Sri Sanghabodhi College, we are thrilled to announce that the members of the 1st official board of our society have been elected as of 26th January 2025. The elected board places G.K. Senuka Gunasekara as the president, I. Rashini Umandya Ilangasinghe as the vice-president, R.D.D. Vidunitha Chandradhasa as the secretary, Womuditha Wanigasundara as somebody, John Doe as somebody else, Foo Bar as somebody else and Jane Doe as somebody else. With that, our board of officials is ready to bring the innovations of tomorrow to today. Congratulations to all board members and good luck.",
-            "long_content": "",
-            "img": "",
-            "date": "26/01/2025"
-        },
-        "u0": {
-            "id": 0,
             "title": "WebSpectres' Website Released",
             "excerpt": "The official website of the WebSpectres' is now up and running.",
             "long_content": "We, the web development society of Sri Sanghabodhi College released our official website on the 25th January of 2025. All projects, project releases, board decisions and changes will be posted here. You can contact us through the contact form on this website or send an email to the email mentioned in the contact section. Stay tuned for exciting and innovative projects in the future. Spectres out!",
             "img": "",
             "date": "25/01/2025"
-        }  
+        },
+        "u0": {
+            "id": 0,
+            "title": "Official Board Elected",
+            "excerpt": "The official board of Web Spectres was selected.",
+            "long_content": "As the official web development society of Sri Sanghabodhi College, we are thrilled to announce that the members of the 1st official board of our society have been elected as of 26th January 2025. The elected board places **G.K. Senuka Gunasekara** as the president, **I. Rashini Umandya Ilangasinghe** as the vice-president, **R.D.D. Vidunitha Chandradhasa** as the secretary, **Womuditha Wanigasundara** as somebody, **John Doe** as somebody else, **Foo Bar** as somebody else and **Jane Doe** as somebody else. With that, our board of officials is ready to bring the innovations of tomorrow to today. Congratulations to all board members and good luck.",
+            "img": "",
+            "date": "26/01/2025"
+        }
     },
     "contact_methods": {
         "location": {
